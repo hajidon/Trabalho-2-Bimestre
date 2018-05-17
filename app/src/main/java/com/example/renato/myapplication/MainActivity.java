@@ -1,11 +1,11 @@
 package com.example.renato.myapplication;
 
-import android.app.ActionBar;
-import android.app.Activity;
+
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
-import android.view.View;
-import android.widget.TextView;
+import android.view.View;;
+import android.support.v7.app.AppCompatActivity;
+
 
 
 import com.mikepenz.materialdrawer.AccountHeader;
@@ -20,21 +20,21 @@ import com.mikepenz.materialdrawer.model.interfaces.IDrawerItem;
 import com.mikepenz.materialdrawer.model.interfaces.IProfile;
 import com.mikepenz.materialdrawer.model.interfaces.Nameable;
 
-public class MainActivity extends Activity {
-    Toolbar toolbar;
+public class MainActivity extends AppCompatActivity {
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        toolbar = (Toolbar) findViewById(R.id.toolbar);
-        toolbar.setTitle( "Testando" );
-
+        Toolbar toolbar;
+        toolbar = (Toolbar)findViewById(R.id.toolbar);
+        setSupportActionBar( toolbar );
          //Create the AccountHeader
         AccountHeader headerResult = new AccountHeaderBuilder()
                 .withActivity(this)
                 .withHeaderBackground(R.drawable.header)
                 .addProfiles(
-                        new ProfileDrawerItem().withName("Mike Penz").withEmail("mikepenz@gmail.com").withIcon(getResources().getDrawable(R.drawable.profile))
+                        new ProfileDrawerItem().withName("Renato Benatti").withEmail("renato.benatti@edu.unipar.br").withIcon(getResources().getDrawable(R.drawable.profile))
                 )
                 .withOnAccountHeaderListener(new AccountHeader.OnAccountHeaderListener() {
                     @Override
@@ -62,10 +62,20 @@ public class MainActivity extends Activity {
                 item2,
                 new SecondaryDrawerItem().withName( "Nova Linha" )
         );
+        //todo incluir um fragment
         drawerBuilder.withOnDrawerItemClickListener( new Drawer.OnDrawerItemClickListener() {
             @Override
             public boolean onItemClick(View view, int position, IDrawerItem drawerItem) {
 
+           if (drawerItem.getIdentifier() == 1) {
+
+               HomeFragment homeFragment = new HomeFragment();
+               getSupportFragmentManager().beginTransaction().replace( R.id.conteudo_fragment, homeFragment).commit();
+
+           } else if (drawerItem.getIdentifier() == 2){
+               ConfigFragment config = new ConfigFragment();
+               getSupportFragmentManager().beginTransaction().replace(R.id.conteudo_fragment,config ).commit();
+           }
                 return false;
             }
         } );
