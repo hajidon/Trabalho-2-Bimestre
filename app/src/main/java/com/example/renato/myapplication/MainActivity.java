@@ -15,22 +15,28 @@ import com.mikepenz.materialdrawer.DrawerBuilder;
 import com.mikepenz.materialdrawer.model.DividerDrawerItem;
 import com.mikepenz.materialdrawer.model.PrimaryDrawerItem;
 import com.mikepenz.materialdrawer.model.ProfileDrawerItem;
-import com.mikepenz.materialdrawer.model.SecondaryDrawerItem;
 import com.mikepenz.materialdrawer.model.interfaces.IDrawerItem;
 import com.mikepenz.materialdrawer.model.interfaces.IProfile;
-import com.mikepenz.materialdrawer.model.interfaces.Nameable;
+
 
 public class MainActivity extends AppCompatActivity {
-
+    Toolbar toolbar;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        Toolbar toolbar;
+
         toolbar = (Toolbar)findViewById(R.id.toolbar);
         setSupportActionBar( toolbar );
          //Create the AccountHeader
+
+        criaDrawer();
+    }
+
+    private void criaDrawer() {
+
         AccountHeader headerResult = new AccountHeaderBuilder()
+
                 .withActivity(this)
                 .withHeaderBackground(R.drawable.header)
                 .addProfiles(
@@ -45,12 +51,11 @@ public class MainActivity extends AppCompatActivity {
                 .build();
 
 //Now create your drawer and pass the AccountHeader.Result
-
         new DrawerBuilder().withActivity(this).build();
         //if you want to update the items at a later time it is recommended to keep it in a variable
-        PrimaryDrawerItem item1 = new PrimaryDrawerItem().withIdentifier(1).withName("Home");
-        SecondaryDrawerItem item2 = new SecondaryDrawerItem().withIdentifier(2).withName("config");
-
+        PrimaryDrawerItem item1 = new PrimaryDrawerItem().withIdentifier(1).withName("Home").withIcon( R.drawable.ic_baseline_home_24px );
+        PrimaryDrawerItem item2 = new PrimaryDrawerItem().withIdentifier(2).withName("Persons").withIcon( R.drawable.ic_baseline_history_24px );
+        PrimaryDrawerItem item3 = new PrimaryDrawerItem().withIdentifier(3).withName( "Sobre" ).withIcon( R.drawable.ic_info_outline_black_24dp );
 //create the drawer and remember the `Drawer` result object
         DrawerBuilder drawerBuilder = new DrawerBuilder();
         drawerBuilder.withActivity( this );
@@ -58,24 +63,26 @@ public class MainActivity extends AppCompatActivity {
         drawerBuilder.withToolbar(toolbar);
         drawerBuilder.addDrawerItems(
                 item1,
-                new DividerDrawerItem(),
                 item2,
-                new SecondaryDrawerItem().withName( "Nova Linha" )
+                new DividerDrawerItem(),
+                item3
         );
         //todo incluir um fragment
         drawerBuilder.withOnDrawerItemClickListener( new Drawer.OnDrawerItemClickListener() {
             @Override
             public boolean onItemClick(View view, int position, IDrawerItem drawerItem) {
 
-           if (drawerItem.getIdentifier() == 1) {
+                if (drawerItem.getIdentifier() == 1) {
 
-               HomeFragment homeFragment = new HomeFragment();
-               getSupportFragmentManager().beginTransaction().replace( R.id.conteudo_fragment, homeFragment).commit();
+                    HomeFragment homeFragment = new HomeFragment();
+                    getSupportFragmentManager().beginTransaction().replace( R.id.conteudo_fragment, homeFragment).commit();
 
-           } else if (drawerItem.getIdentifier() == 2){
-               ConfigFragment config = new ConfigFragment();
-               getSupportFragmentManager().beginTransaction().replace(R.id.conteudo_fragment,config ).commit();
-           }
+                } else if (drawerItem.getIdentifier() == 2){
+
+                    HistoricoFragment config = new HistoricoFragment();
+                    getSupportFragmentManager().beginTransaction().replace(R.id.conteudo_fragment,config ).commit();
+
+                }
                 return false;
             }
         } );
