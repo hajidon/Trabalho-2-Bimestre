@@ -29,7 +29,8 @@ public class MainActivity extends AppCompatActivity {
         toolbar = (Toolbar)findViewById(R.id.toolbar);
         setSupportActionBar( toolbar );
          //Create the AccountHeader
-
+        HomeFragment homeFragment = new HomeFragment();
+        getSupportFragmentManager().beginTransaction().replace( R.id.conteudo_fragment, homeFragment).commit();
         criaDrawer();
     }
 
@@ -54,7 +55,7 @@ public class MainActivity extends AppCompatActivity {
         new DrawerBuilder().withActivity(this).build();
         //if you want to update the items at a later time it is recommended to keep it in a variable
         PrimaryDrawerItem item1 = new PrimaryDrawerItem().withIdentifier(1).withName("Home").withIcon( R.drawable.ic_baseline_home_24px );
-        PrimaryDrawerItem item2 = new PrimaryDrawerItem().withIdentifier(2).withName("Persons").withIcon( R.drawable.ic_baseline_history_24px );
+        PrimaryDrawerItem item2 = new PrimaryDrawerItem().withIdentifier(2).withName("Historico").withIcon( R.drawable.ic_baseline_history_24px );
         PrimaryDrawerItem item3 = new PrimaryDrawerItem().withIdentifier(3).withName( "Sobre" ).withIcon( R.drawable.ic_info_outline_black_24dp );
 //create the drawer and remember the `Drawer` result object
         DrawerBuilder drawerBuilder = new DrawerBuilder();
@@ -87,7 +88,6 @@ public class MainActivity extends AppCompatActivity {
             }
         } );
         Drawer result = drawerBuilder.build();
-
     }
 
 }
