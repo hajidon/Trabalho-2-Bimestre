@@ -32,7 +32,7 @@ import java.util.List;
  * A simple {@link Fragment} subclass.
  */
 public class HistoricoFragment extends Fragment {
-    private String TAG = null;
+    private String TAG = "Historico Fragment";
     Historico historico = null;
     private HistoricoAdapter adapter;
     private RecyclerView recyclerView;
@@ -115,6 +115,7 @@ public class HistoricoFragment extends Fragment {
     @Override
     public void onResume() {
         super.onResume();
+        configurarRecycler( view );
         Log.d(TAG, "onResume");
     }
     @Override

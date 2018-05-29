@@ -66,4 +66,9 @@ public class HistoricoDAO {
 
         return new Historico(id, solicitante, horario, caixa);
     }
+
+    public boolean excluir(int id){
+
+        return gw.getDatabase().delete(TABLE_HISTORICO, "ID=?", new String[]{ id + "" }) > 0;
+    }
 }

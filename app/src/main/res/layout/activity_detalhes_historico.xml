@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/viewSolicitante"
+        android:layout_alignParentStart="true"
+        android:textSize="13pt"
+        />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/viewHorario"
+        android:textSize="13pt"
+        android:layout_below="@+id/viewSolicitante"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/viewCaixa"
+        android:textSize="13pt"
+        android:layout_below="@+id/viewHorario"/>
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerInParent="true">
+
+        <android.support.design.widget.FloatingActionButton
+            android:id="@+id/editar"
+            app:srcCompat="@android:drawable/ic_menu_edit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+        <android.support.design.widget.FloatingActionButton
+            android:layout_marginLeft="10dp"
+            android:id="@+id/deletar"
+            android:layout_width="wrap_content"
+            app:srcCompat="@android:drawable/ic_menu_delete"
+            android:layout_height="wrap_content" />
+        <android.support.design.widget.FloatingActionButton
+            android:id="@+id/voltar"
+            android:layout_marginLeft="10dp"
+            android:layout_width="wrap_content"
+            app:srcCompat="@android:drawable/ic_menu_revert"
+            android:layout_height="wrap_content"
+          />
+    </LinearLayout>
+
+
+</RelativeLayout>

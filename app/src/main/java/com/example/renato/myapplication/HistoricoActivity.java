@@ -60,12 +60,14 @@ public class HistoricoActivity extends AppCompatActivity {
                     Historico historico = dao.retornarUltimo();
 
                     if (historicoEditado != null) {
-                        adapter.atualizarHistoricoEnviado( historico );
+                       //adapter.atualizarHistoricoEnviado( historico );
                         historicoEditado = null;
+                        finish();
                     } else {
-                        adapter.adicionarHistoricoEnviado( historico );
+                       // adapter.adicionarHistoricoEnviado( historico );
                         Snackbar.make(view, "Salvo com sucesso!", Snackbar.LENGTH_LONG)
                                 .setAction("Action", null).show();
+                        finish();
                     }
 
                     txtSolicitante.setText("");

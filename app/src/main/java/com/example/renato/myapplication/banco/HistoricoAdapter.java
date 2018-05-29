@@ -4,7 +4,6 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.ContextWrapper;
 import android.content.Intent;
-import android.os.Parcelable;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
@@ -13,10 +12,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 
-import com.example.renato.myapplication.HistoricoActivity;
+import com.example.renato.myapplication.DetalhesHistorico;
 import com.example.renato.myapplication.R;
 
-import java.io.Serializable;
 import java.util.List;
 
 
@@ -31,8 +29,9 @@ public class HistoricoAdapter extends RecyclerView.Adapter<HistoricoHolder> {
 
 
     public void atualizarHistoricoEnviado(Historico historico) {
-        historicos.set(historicos.indexOf(historico), historico);
-        notifyItemChanged(historicos.indexOf(historico));
+        //historicos.set(historicos.indexOf(historico), historico);
+        //notifyItemChanged(historicos.indexOf(historico));
+
     }
 
     public void adicionarHistoricoEnviado(Historico historico) {
@@ -75,7 +74,7 @@ public class HistoricoAdapter extends RecyclerView.Adapter<HistoricoHolder> {
         final Historico historico = historicos.get( position );
         holder.nomeSolicitante.setText(historicos.get(position).getSolicitante());
         //holder.horario.setText( historicos.get( position ).getHorario() );
-        Log.d("MSG","ENtrou no onBlindView");
+        Log.d("MSG","Entrou no onBlindView");
         holder.btnEditar.setOnClickListener(new Button.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -93,8 +92,13 @@ public class HistoricoAdapter extends RecyclerView.Adapter<HistoricoHolder> {
     private void editar(final View v, final Historico historico ) {
 
         Activity activity = getActivity(v);
-        Intent intent = new Intent(activity.getBaseContext(), HistoricoActivity.class);
+        Intent intent = new Intent(activity.getBaseContext(), DetalhesHistorico.class);
         intent.putExtra("historico", historico );
         activity.startActivity(intent);
+    }
+    public void removerHistorico(Historico historico){
+        int position = historicos.indexOf(historico);
+        historicos.remove(position);
+        notifyItemRemoved(position);
     }
 }

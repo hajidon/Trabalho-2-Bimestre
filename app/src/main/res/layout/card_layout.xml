@@ -19,7 +19,7 @@
                 android:id="@+id/card_solicitante"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textSize="30sp" />
+                android:textSize="40sp" />
 
             <ImageButton
                 android:id="@+id/btnEdit"
@@ -28,7 +28,8 @@
                 android:layout_alignParentEnd="true"
                 android:layout_marginRight="8dp"
                 android:layout_marginTop="8dp"
-                android:src="@android:drawable/ic_menu_more" />
+                android:layout_marginBottom="8dp"
+                android:src="@android:drawable/ic_menu_search" />
 
 
         </RelativeLayout>
