@@ -16,20 +16,19 @@
             android:layout_marginTop="5pt">
 
             <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
                 android:id="@+id/card_solicitante"
-                android:layout_alignParentTop="true"
-                android:textSize="30sp"
-
-                />
-
-            <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/card_horario"
-                android:layout_below="@+id/card_solicitante"
-                />
+                android:textSize="30sp" />
+
+            <ImageButton
+                android:id="@+id/btnEdit"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_marginRight="8dp"
+                android:layout_marginTop="8dp"
+                android:src="@android:drawable/ic_menu_more" />
 
 
         </RelativeLayout>

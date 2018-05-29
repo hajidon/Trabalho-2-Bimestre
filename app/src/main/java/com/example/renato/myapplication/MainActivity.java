@@ -1,13 +1,15 @@
 package com.example.renato.myapplication;
 
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.view.View;;
 import android.support.v7.app.AppCompatActivity;
+import android.widget.EditText;
 
 
-
+import com.example.renato.myapplication.banco.Historico;
 import com.mikepenz.materialdrawer.AccountHeader;
 import com.mikepenz.materialdrawer.AccountHeaderBuilder;
 import com.mikepenz.materialdrawer.Drawer;
@@ -21,6 +23,7 @@ import com.mikepenz.materialdrawer.model.interfaces.IProfile;
 
 public class MainActivity extends AppCompatActivity {
     Toolbar toolbar;
+    Historico historicoEditado = null;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -32,6 +35,8 @@ public class MainActivity extends AppCompatActivity {
         HomeFragment homeFragment = new HomeFragment();
         getSupportFragmentManager().beginTransaction().replace( R.id.conteudo_fragment, homeFragment).commit();
         criaDrawer();
+
+
     }
 
     private void criaDrawer() {

@@ -1,10 +1,12 @@
 package com.example.renato.myapplication.banco;
 
+import java.io.Serializable;
+
 /**
  * Created by Renato on 20/05/2018.
  */
 
- public class Historico {
+ public class Historico implements Serializable{
     private int id;
     private String solicitante;
     private String horario;

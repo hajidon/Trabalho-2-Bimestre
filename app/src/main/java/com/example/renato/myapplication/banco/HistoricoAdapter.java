@@ -1,13 +1,22 @@
 package com.example.renato.myapplication.banco;
 
+import android.app.Activity;
+import android.content.Context;
+import android.content.ContextWrapper;
+import android.content.Intent;
+import android.os.Parcelable;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 
+import com.example.renato.myapplication.HistoricoActivity;
 import com.example.renato.myapplication.R;
 
+import java.io.Serializable;
 import java.util.List;
 
 
@@ -21,6 +30,21 @@ public class HistoricoAdapter extends RecyclerView.Adapter<HistoricoHolder> {
     }
 
 
+    public void atualizarHistoricoEnviado(Historico historico) {
+        historicos.set(historicos.indexOf(historico), historico);
+        notifyItemChanged(historicos.indexOf(historico));
+    }
+
+    public void adicionarHistoricoEnviado(Historico historico) {
+        historicos.add(historico);
+        notifyItemInserted(getItemCount());
+    }
+
+    public void removerHistoricoEnviado(Historico historico) {
+        int posicao = historicos.indexOf(historico);
+        historicos.remove(posicao);
+        notifyItemRemoved(posicao);
+    }
     @NonNull
     @Override
     public HistoricoHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
@@ -36,16 +60,41 @@ public class HistoricoAdapter extends RecyclerView.Adapter<HistoricoHolder> {
                 .inflate( R.layout.card_layout, parent, false));
     }
 
+    private Activity getActivity(View view) {
+        Context context = view.getContext();
+        while (context instanceof ContextWrapper) {
+            if (context instanceof Activity) {
+                return (Activity)context;
+            }
+            context = ((ContextWrapper)context).getBaseContext();
+        }
+        return null;
+    }
     @Override
     public void onBindViewHolder(@NonNull HistoricoHolder holder, int position) {
-
+        final Historico historico = historicos.get( position );
         holder.nomeSolicitante.setText(historicos.get(position).getSolicitante());
-        holder.horario.setText( historicos.get( position ).getHorario() );
+        //holder.horario.setText( historicos.get( position ).getHorario() );
         Log.d("MSG","ENtrou no onBlindView");
+        holder.btnEditar.setOnClickListener(new Button.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+              editar( v,historico );
+            }
+        });
     }
 
     @Override
     public int getItemCount() {
         return historicos != null ? historicos.size() : 0;
+    }
+
+    private void editar(final View v, final Historico historico ) {
+
+        Activity activity = getActivity(v);
+        Intent intent = new Intent(activity.getBaseContext(), HistoricoActivity.class);
+        intent.putExtra("historico", historico );
+        activity.startActivity(intent);
     }
 }

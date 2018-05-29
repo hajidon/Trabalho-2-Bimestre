@@ -11,11 +11,12 @@ public class HistoricoHolder extends RecyclerView.ViewHolder {
 
     public TextView nomeSolicitante;
     public TextView horario;
-    public ImageButton btnExcluir;
+    public ImageButton btnEditar;
 
     public HistoricoHolder(View itemView) {
         super(itemView);
         nomeSolicitante = (TextView) itemView.findViewById( R.id.card_solicitante);
-        horario = (TextView) itemView.findViewById(R.id.card_horario);
+        //horario = (TextView) itemView.findViewById(R.id.card_horario);
+        btnEditar = (ImageButton) itemView.findViewById( R.id.btnEdit );
     }
 }
