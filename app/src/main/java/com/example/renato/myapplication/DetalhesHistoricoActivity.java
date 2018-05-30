@@ -18,7 +18,7 @@ import com.example.renato.myapplication.banco.Historico;
 import com.example.renato.myapplication.banco.HistoricoAdapter;
 import com.example.renato.myapplication.banco.HistoricoDAO;
 
-public class DetalhesHistorico extends AppCompatActivity {
+public class DetalhesHistoricoActivity extends AppCompatActivity {
     private String TAG = "Detalhes Hisstorico";
     private HistoricoAdapter adapter;
     Toolbar toolbar;

@@ -17,23 +17,8 @@
             </intent-filter>
         </activity>
         <activity android:name=".HistoricoActivity" />
-        <activity android:name=".DetalhesHistorico"></activity>
-        <meta-data
-            android:name="com.google.firebase.messaging.default_notification_icon" />
-        <meta-data
-            android:name="com.google.firebase.messaging.default_notification_channel_id"/>
-        <service
-            android:name=".InstanceIDService">
-            <intent-filter>
-                <action android:name="com.google.firebase.INSTANCE_ID_EVENT"/>
-            </intent-filter>
-        </service>
-        <service
-            android:name=".MessagingService">
-            <intent-filter>
-                <action android:name="com.google.firebase.MESSAGING_EVENT"/>
-            </intent-filter>
-        </service>
+        <activity android:name=".DetalhesHistoricoActivity"></activity>
+
     </application>
 
 

@@ -12,7 +12,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 
-import com.example.renato.myapplication.DetalhesHistorico;
+import com.example.renato.myapplication.DetalhesHistoricoActivity;
 import com.example.renato.myapplication.R;
 
 import java.util.List;
@@ -92,7 +92,7 @@ public class HistoricoAdapter extends RecyclerView.Adapter<HistoricoHolder> {
     private void editar(final View v, final Historico historico ) {
 
         Activity activity = getActivity(v);
-        Intent intent = new Intent(activity.getBaseContext(), DetalhesHistorico.class);
+        Intent intent = new Intent(activity.getBaseContext(), DetalhesHistoricoActivity.class);
         intent.putExtra("historico", historico );
         activity.startActivity(intent);
     }
