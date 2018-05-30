@@ -1,5 +1,4 @@
 apply plugin: 'com.android.application'
-apply plugin: 'kotlin-android'
 
 android {
     compileSdkVersion 26
@@ -44,15 +43,3 @@ repositories {
     mavenCentral()
 }
 apply plugin: 'kotlin-android-extensions'
-
-
-
-
-
-
-
-
-
-
-
-apply plugin: 'com.google.gms.google-services'
