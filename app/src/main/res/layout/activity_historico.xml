@@ -36,6 +36,7 @@
             android:layout_height="wrap_content"
             android:text="Salvar"/>
         <Button
+            android:id="@+id/cancelar"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Cancelar"/>

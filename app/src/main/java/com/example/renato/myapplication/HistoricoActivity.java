@@ -80,5 +80,15 @@ public class HistoricoActivity extends AppCompatActivity {
 
             }
         });
+
+
+        Button btnCancelar = (Button) findViewById( R.id.cancelar );
+        btnCancelar.setOnClickListener( new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        } );
     }
+
 }
