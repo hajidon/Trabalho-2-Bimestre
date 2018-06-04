@@ -88,6 +88,9 @@ public class MainActivity extends AppCompatActivity {
                     HistoricoFragment config = new HistoricoFragment();
                     getSupportFragmentManager().beginTransaction().replace(R.id.conteudo_fragment,config ).commit();
 
+                } else if (drawerItem.getIdentifier() == 3) {
+                    AboutFragment aboutFragment = new AboutFragment();
+                    getSupportFragmentManager().beginTransaction().replace( R.id.conteudo_fragment,aboutFragment ).commit();
                 }
                 return false;
             }
