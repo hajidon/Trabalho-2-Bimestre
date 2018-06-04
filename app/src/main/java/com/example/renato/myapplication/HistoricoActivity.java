@@ -25,7 +25,6 @@ public class HistoricoActivity extends AppCompatActivity {
         EditText txtHorario = (EditText)findViewById( R.id.horario );
         EditText txtNumeroCaixa = (EditText)findViewById( R.id.caixa);
         if(intent.hasExtra("historico")){
-            Log.d("msg","entrou aqui");
               historicoEditado = (Historico) intent.getSerializableExtra("historico");
                txtSolicitante.setText(historicoEditado.getSolicitante());
                txtHorario.setText( historicoEditado.getHorario() );

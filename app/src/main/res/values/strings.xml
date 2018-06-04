@@ -3,4 +3,9 @@
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Primeira Tela</string>
+    <string name="Digite_um_nome">Digite um nome:</string>
+    <string name="Horario">Horario</string>
+    <string name="Caixa">Caixa</string>
+    <string name="Salvar">Salvar</string>
+    <string name="Cancelar">Cancelar</string>
 </resources>

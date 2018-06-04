@@ -9,19 +9,19 @@
         android:layout_height="wrap_content"
         android:id="@+id/solicitante"
         android:layout_alignParentStart="true"
-        android:hint="Digite um nome:"/>
+        android:hint="@string/Digite_um_nome"/>
 
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/horario"
-        android:hint="Horario"
+        android:hint="@string/Horario"
         android:layout_below="@+id/solicitante"/>
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/caixa"
-        android:hint="Caixa"
+        android:hint="@string/Caixa"
         android:inputType="number"
         android:layout_below="@+id/horario"/>
     <LinearLayout
@@ -34,12 +34,12 @@
             android:id="@+id/salvar"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Salvar"/>
+            android:text="@string/Salvar"/>
         <Button
             android:id="@+id/cancelar"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Cancelar"/>
+            android:text="@string/Cancelar"/>
     </LinearLayout>
 
 

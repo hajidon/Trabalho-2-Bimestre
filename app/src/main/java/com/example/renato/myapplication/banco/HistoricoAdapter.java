@@ -47,12 +47,11 @@ public class HistoricoAdapter extends RecyclerView.Adapter<HistoricoHolder> {
     @NonNull
     @Override
     public HistoricoHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        Log.d("MSG","Entrou no HistoricoHolder");
         try {
             return new HistoricoHolder( LayoutInflater.from(parent.getContext())
                     .inflate( R.layout.card_layout, parent, false));
         } catch (Exception e) {
-            Log.d( "erro","Deu erro no inflarCard" );
+
         }
 
         return new HistoricoHolder( LayoutInflater.from(parent.getContext())
@@ -74,7 +73,6 @@ public class HistoricoAdapter extends RecyclerView.Adapter<HistoricoHolder> {
         final Historico historico = historicos.get( position );
         holder.nomeSolicitante.setText(historicos.get(position).getSolicitante());
         //holder.horario.setText( historicos.get( position ).getHorario() );
-        Log.d("MSG","Entrou no onBlindView");
         holder.btnEditar.setOnClickListener(new Button.OnClickListener() {
             @Override
             public void onClick(View v) {
